@@ -33,7 +33,7 @@ resource "aws_ecs_task_definition" "runner_task_definition" {
           }
         ] : []
       )
-      command = ["./entrypoint_token.sh"]
+      command = ["vim "]
       log_configuration = {
         logDriver = "awslogs"
         options = {
@@ -61,6 +61,25 @@ resource "aws_apigatewayv2_api" "hook_api" {
   target = aws_lambda_function.function.arn
 }
 
+resource "aws_apigatewayv2_route" "hook_route" {
+  api_id    = aws_apigatewayv2_api.hook_api.id
+  route_key = "$default"
+}
+
+resource "aws_apigatewayv2_stage" "hook_stage" {
+  api_id = aws_apigatewayv2_api.hook_api.id
+  name   = "prod"
+}
+
+resource "aws_apigatewayv2_vpc_link" "hook_link" {
+  name               = "${var.namespace}-vpc-link"
+  security_group_ids = [aws_security_group.vpce_security_group.id]
+  subnet_ids         = [var.routable_subnet_a, var.routable_subnet_b]
+
+  tags = {
+    Usage = "example"
+  }
+}
 # module "files" {
 #   source  = "HappyPathway/files/ls"
 #   pattern = "./runnerhoook/*"
