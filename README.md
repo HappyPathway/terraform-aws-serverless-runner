@@ -46,7 +46,6 @@ No modules.
 | [aws_security_group_rule.vpce_security_group_egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.vpce_security_group_ingress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_ssm_parameter.hook_url_ssm_parameter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
-| [aws_vpc_endpoint.vpc_endpoint](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint) | resource |
 | [github_repository_webhook.foo](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/repository_webhook) | resource |
 | [random_password.git_hook_secret_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [archive_file.runnerhook](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
