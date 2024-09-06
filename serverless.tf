@@ -61,11 +61,6 @@ resource "aws_apigatewayv2_api" "hook_api" {
   target = aws_lambda_function.function.arn
 }
 
-resource "aws_apigatewayv2_route" "hook_route" {
-  api_id    = aws_apigatewayv2_api.hook_api.id
-  route_key = "$default"
-}
-
 resource "aws_apigatewayv2_stage" "hook_stage" {
   api_id = aws_apigatewayv2_api.hook_api.id
   name   = "prod"
