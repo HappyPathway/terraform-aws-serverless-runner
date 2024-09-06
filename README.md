@@ -17,9 +17,7 @@ No requirements.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_files"></a> [files](#module\_files) | HappyPathway/files/ls | n/a |
+No modules.
 
 ## Resources
 
