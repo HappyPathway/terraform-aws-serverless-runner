@@ -46,14 +46,6 @@ resource "aws_ecs_task_definition" "runner_task_definition" {
   ])
 }
 
-resource "aws_vpc_endpoint" "vpc_endpoint" {
-  vpc_id             = var.vpc_id
-  service_name       = "com.amazonaws.${data.aws_region.current.name}.execute-api"
-  vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.vpce_security_group.id]
-  subnet_ids         = [var.routable_subnet_a, var.routable_subnet_b]
-}
-
 resource "aws_apigatewayv2_api" "hook_api" {
   name          = "${var.namespace}-github-workflow_job hook"
   protocol_type = "HTTP"
